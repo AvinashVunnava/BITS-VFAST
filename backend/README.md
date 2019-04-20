@@ -1,4 +1,3 @@
-Run the below commands in the same order
- - bash create_env.sh
- - source test_env/bin/activate
- - bash install_dependencies.sh
+Run the below command and you will be able to see a prompt that backend is running
+
+`bash create_env.sh && source test_env/bin/activate && bash install_dependencies.sh`
