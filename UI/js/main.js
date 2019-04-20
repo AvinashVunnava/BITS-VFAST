@@ -2,8 +2,8 @@
 
 (function($) {
     
-  var availabilityAPI = "http://5.9.81.107:9609/rooms/check_availability",
-      bookingAPI      = "http://5.9.81.107:9609/rooms/student_booking",
+  var availabilityAPI = "http://localhost:9609/rooms/check_availability",
+      bookingAPI      = "http://localhost:9609/rooms/student_booking",
       bookingType     = "student";
   
   

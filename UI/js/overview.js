@@ -2,7 +2,7 @@
 
 (function($) {
   
-  var overviewAPI = "http://5.9.81.107:9609/rooms/get_bookings";
+  var overviewAPI = "http://localhost:9609/rooms/get_bookings";
   
   function showInfo(res){
     var dataSet     = [],
