@@ -439,7 +439,7 @@ select {
 }
 
 .Info {
-    margin-top: 23%;
+    margin-top: 10%;
     padding-left: 6rem;
 }
 
@@ -455,7 +455,7 @@ select {
 
 .loading-text {
     font-size: large;
-    text-align: center; 
+    padding-left: 5rem; 
 }
 
 .fantasy-font {

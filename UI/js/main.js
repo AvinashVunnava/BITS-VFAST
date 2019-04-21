@@ -113,21 +113,25 @@
         toastr.error("Check-out Date cannot be less than Check-in Date");
         return;
     }
+    $(".signup-form").addClass("no-display");
+    $(".submitInfo").removeClass("no-display")
     $.ajax({
         url: bookingAPI,
         type: 'GET',
         data: JSON.stringify(params),
         success: function(res, status) {
             if(status != "success"){
+                $(".submitInfo").addClass("no-display")
                 toastr.error("Unknown Error Occurred!! Please try after sometime.");
                 return;
             }
             if(res && !res.success){
+                $(".submitInfo").addClass("no-display")
                 toastr.error("Failed to Book Room! Please try after sometime.");
                 return;
             }
+            $(".submitInfo").addClass("no-display")
             toastr.success("Booking Success!!!");
-            $(".signup-form").addClass("no-display");
             $(".successInfo").removeClass("no-display")
         }
     });
