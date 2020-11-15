@@ -77,12 +77,12 @@ def student_booking(request):
         # Send messsage to Food Dept, if guest opted for food.
         if food:
             message = "Food Department..please note {_type} room {num} requires food".format(num=str(room_no), _type=_type)
-            payload = PAYLOAD.format(msg=message, num='8019261797')
+            payload = PAYLOAD.format(msg=message, num='80')
             response = requests.request("POST", URL, data=payload, headers=HEADERS)
             print(response.text)
 
         message = "Maintenance Department..please note {_type} room {num} is booked".format(num=str(room_no),_type=_type)
-        payload = PAYLOAD.format(msg=message, num='7799054369')
+        payload = PAYLOAD.format(msg=message, num='77')
         response = requests.request("POST", URL, data=payload, headers=HEADERS)
         print(response.text)
 
