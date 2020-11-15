@@ -11,7 +11,7 @@ from django.core import serializers
 #logs
 
 URL = "https://www.fast2sms.com/dev/bulk"
-PAYLOAD = "sender_id=FSTSMS&message={msg}&language=english&route=p&numbers={num}"
+PAYLOAD = "sender_id=anilFSTSMS&message={msg}&language=english&route=p&numbers={num}"
 HEADERS = {
     'authorization': "sWnHgwGl1pPB0mC54kAdohOY7EvuR8rc2yiX6QtNaTLKf3ZSeb7GMCYAnTNL0b5ZpaIhmwviUsg169XO",
     'Content-Type': "application/x-www-form-urlencoded",
@@ -33,7 +33,7 @@ def check_availability(request, *args):
 
 def student_booking(request):
     params_dict = request.GET
-    params_dict = json.loads(params_dict.keys()[0])
+    params_dict = json.loads(list(params_dict.keys())[0])
     try:
         _type = params_dict.get("_type", "")
         student = params_dict.get("student", "")
@@ -68,11 +68,11 @@ def student_booking(request):
                     guest_name=guest_name, guest_num=guest_num, check_in=check_in, check_out=check_out,\
                     relation=relation, purpose=purpose,food=food, availability=0)
 
-	message = "Room No: {} is booked for you...!!!  -BITS Pilani".format(str(room_no))
-	guest_num = str(guest_num)
-	payload = PAYLOAD.format(msg=message, num=guest_num)
-	response = requests.request("POST", URL, data=payload, headers=HEADERS)
-	print(response.text)
+        message = "Room No: {} is booked for you...!!!  -BITS Pilani".format(str(room_no))
+        guest_num = str(guest_num)
+        payload = PAYLOAD.format(msg=message, num=guest_num)
+        response = requests.request("POST", URL, data=payload, headers=HEADERS)
+        print(response.text)
 
         # Send messsage to Food Dept, if guest opted for food.
         if food:
@@ -81,10 +81,10 @@ def student_booking(request):
             response = requests.request("POST", URL, data=payload, headers=HEADERS)
             print(response.text)
 
-	message = "Maintenance Department..please note {_type} room {num} is booked".format(num=str(room_no),_type=_type)
-	payload = PAYLOAD.format(msg=message, num='7799054369')
-	response = requests.request("POST", URL, data=payload, headers=HEADERS)
-	print(response.text)
+        message = "Maintenance Department..please note {_type} room {num} is booked".format(num=str(room_no),_type=_type)
+        payload = PAYLOAD.format(msg=message, num='7799054369')
+        response = requests.request("POST", URL, data=payload, headers=HEADERS)
+        print(response.text)
 
         return  JsonResponse({"success": True})
 
