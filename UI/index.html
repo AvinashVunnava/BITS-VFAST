@@ -62,22 +62,6 @@
                     <div method="POST" class="register-form" id="registerForm">
                         <div class="welcomeText text-xs-center">SRM AP</div>
                         <div class="text-xs-center"><h2>College Fest Registration Form</h2></div>
-                        <div class="form-radio select-room">
-                            <label for="room-type"
-                                   class="radio-label">Type of Room *</label>
-                            <br />
-                            <div class="form-radio-item">
-                                <input type="radio" name="room-type" id="normal" checked>
-                                <label for="normal">Normal</label>
-                                <span class="check"></span>
-                            </div>
-                            <div class="form-radio-item">
-                                <input type="radio" name="room-type" id="deluxe">
-                                <label for="deluxe">Deluxe</label>
-                                <span class="check"></span>
-                            </div>
-                            <br />
-                        </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="student_name" id="student_name_label">Student Name * :</label>
@@ -98,33 +82,6 @@
                                    size="10"
                                    pattern="[0-9.]+"
                                    required/>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="guest_name"> Guest Name * :</label>
-                                <input type="text" name="guest_name" id="guest_name" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="guest_no">Guest Mobile No * :</label>
-                                <input type="number"
-                                       name="guest_no"
-                                       id="guest_no"
-                                       maxlength="10"
-                                       minlength="10"
-                                       size="10"
-                                       pattern="[0-9.]+"
-                                       required/>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="noof_guests">No.of Guests * :</label>
-                                <input type="number" name="noof_guests" id="noof_guests" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="noof_rooms">No.of Rooms * :</label>
-                                <input type="number" name="noof_rooms" id="noof_rooms" required/>
-                            </div>
                         </div>
                         <div class="form-radio">
                             <label for="gender" class="radio-label">Gender :</label>
@@ -190,18 +147,6 @@
 							</div>
                         </div>
                         <div class="form-group">
-                            <form action="/action_page.php">
-                                <label for="checkin">Check-in Date * :</label>
-                                <input type="date" name="checkin" id="checkin">
-                            </form>
-                        </div>
-                        <div class="form-group">
-                            <form action="/action_page.php">
-                                <label for="checkout">Check-out Date * :</label>
-                                <input type="date" name="checkout" id="checkout">
-                            </form>
-                        </div> 
-                        <div class="form-group">
                             <label for="course">Course * :</label>
                             <div class="form-select">
                                 <select name="course" id="course">
@@ -215,12 +160,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="relation">Relation * :</label>
-                            <input type="text"
-                                   placeholder="Enter relation in small letters Ex: father/husband"
-                                   name="relation" id="relation" required/>
-                        </div>
-                        <div class="form-group">
                             <label for="reason">Reason for attending fest * :</label>
                             <input type="text"
                                    placeholder="In 20-25 words"
@@ -230,23 +169,7 @@
                             <label for="email">Email ID :</label>
                             <input type="email" name="email" id="email" />
                         </div>
-                        <div class="form-radio">
-                            <label for="food" class="radio-label">Do you want Food ? *</label>
-                            <div class="form-radio-item">
-                                <input type="radio" name="food" id="yes" checked>
-                                <label for="yes">Yes</label>
-                                <span class="check"></span>
-                            </div>
-                            <div class="form-radio-item">
-                                <input type="radio" name="food" id="no">
-                                <label for="no">No</label>
-                                <span class="check"></span>
-                            </div>
-                        </div>
                     </div>
-                    <a href="rules.html"
-                       target="_blank"
-                       style="padding-left: 4rem;">Please find Rules about VFAST HOSTEL HERE</a>
                     <div class="form-submit">
                         <input type="reset" value="Reset All" class="submit" name="reset" id="reset" />
                         <input type="submit" value="Submit Form" class="submit" name="submit" id="submit" />
