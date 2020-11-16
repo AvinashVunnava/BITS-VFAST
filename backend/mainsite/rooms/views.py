@@ -30,41 +30,18 @@ def student_booking(request):
         dept = params_dict.get("dept", "")
         _id = params_dict.get("_id", "")
         mobile_num = params_dict.get("mobile_num", "")
-        guest_name = params_dict.get("guest_name", "")
-        guest_num = params_dict.get("guest_num", "")
-        check_in = params_dict.get("check_in", "")
-        check_out = params_dict.get("check_out", "")
-        relation = params_dict.get("relation", "")
         purpose = params_dict.get("purpose", "")
-        food = params_dict.get("food", "")
-        food = 1 if food.lower() == 'yes' else 0
+
         normal_rooms = NormalRoom.objects.filter(availability=1)
         normal_room_objs = normal_rooms.values('room_no')
         normal_room_nums = [int(obj.get("room_no", 0)) for obj in normal_room_objs]
-        room_no = normal_room_nums[0]
+        room_no = normal_room_nums[0] if normal_room_nums else 1
 
         n_obj = NormalRoom.objects.filter(room_no=room_no)
         n_obj.update(student=student, dept=dept, _id=_id, mobile_num=mobile_num,\
-                guest_name=guest_name, guest_num=guest_num, check_in=check_in, check_out=check_out,\
-                relation=relation, purpose=purpose,food=food, availability=0)
+                purpose=purpose, availability=0)
 
-        message = "Room No: {} is booked for you...!!!  -BITS Pilani".format(str(room_no))
-        guest_num = str(guest_num)
-        payload = PAYLOAD.format(msg=message, num=guest_num)
-        response = requests.request("POST", URL, data=payload, headers=HEADERS)
-        print(response.text)
-
-        # Send messsage to Food Dept, if guest opted for food.
-        if food:
-            message = "Food Department..please note {_type} room {num} requires food".format(num=str(room_no), _type=_type)
-            payload = PAYLOAD.format(msg=message, num='80')
-            response = requests.request("POST", URL, data=payload, headers=HEADERS)
-            print(response.text)
-
-        message = "Maintenance Department..please note {_type} room {num} is booked".format(num=str(room_no),_type=_type)
-        payload = PAYLOAD.format(msg=message, num='77')
-        response = requests.request("POST", URL, data=payload, headers=HEADERS)
-        print(response.text)
+        message = "Room No: {} is booked for you...!!!  -SRM AP".format(str(room_no))
 
         return  JsonResponse({"success": True})
 

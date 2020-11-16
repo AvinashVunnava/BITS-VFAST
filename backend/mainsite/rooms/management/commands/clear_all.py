@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from rooms.models import NormalRoom, DeluxeRoom
+from rooms.models import NormalRoom
 
 
 class Command(BaseCommand):
@@ -10,7 +10,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         NormalRoom.objects.all().delete()
-        DeluxeRoom.objects.all().delete()
 
         self.stdout.write("Rooms DELETED")
 

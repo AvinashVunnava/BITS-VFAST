@@ -12,14 +12,8 @@
                     student     : $('#student_name').val(), 
                     _id         : $("#student_id").val(),
                     mobile_num  : $("#student_mobile").val(),
-                    guest_name  : 'XYZ',//$("#guest_name").val(),
-                    guest_num   : 123,//$("#guest_no").val(),
-                    check_in    : '14-09-2020',//$("#checkin").val(),
-                    check_out   : '15-09-2020',//,$("#checkout").val(),
                     dept        : $('#course :selected').val(),
-                    relation    : 'Self',//$("#relation").val(),
                     purpose     : $("#reason").val(),
-                    food        : 'No'//$('input[type=radio][name=food]:checked')[0].id
                 }
     var values = Object.values(params)
     if(values.includes('')){ return {} };

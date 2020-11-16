@@ -8,7 +8,7 @@
     var dataSet     = [],
         normalResp  = [],
         columns     = [],
-        column      = res.normal_rooms[0] || res.deluxe_rooms[0];
+        column      = res.normal_rooms[0];
     Object.keys(column).forEach(function(i){
         columns.push({ 'title': i });
     });
@@ -55,6 +55,6 @@
         }
       });
 
-  }, 3500);
+  }, 1500);
 
 })(jQuery);
